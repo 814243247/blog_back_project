@@ -6,6 +6,7 @@ import com.example.blog2.po.User;
 import com.example.blog2.service.UserService;
 import com.example.blog2.util.TokenUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +17,7 @@ import java.util.Map;
 
 @RestController
 @CrossOrigin
+@Slf4j
 public class UserController {
 
     @Autowired
@@ -48,14 +50,14 @@ public class UserController {
         User u = para.get("user");
         if (u != null) {
             User user = userService.save(u);
-            System.out.println(user);
+            log.info(user + "");
             String token = TokenUtil.sign(user);
             Map<String, Object> info = new HashMap<>();
             info.put("user", user);
             info.put("token", token);
-            return new Result(true, StatusCode.OK, "管理员登录成功", info);
+            return new Result(true, StatusCode.OK, "注册普通用户", info);
         } else {
-            return new Result(true, StatusCode.ERROR, "管理员登录失败", null);
+            return new Result(true, StatusCode.ERROR, "注册普通用户失败", null);
         }
     }
 

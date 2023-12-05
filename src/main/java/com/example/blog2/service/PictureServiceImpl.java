@@ -6,6 +6,7 @@ import com.example.blog2.po.Result;
 import com.example.blog2.po.StatusCode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -21,8 +22,10 @@ import java.util.UUID;
 public class PictureServiceImpl implements PictureService{
     @Autowired
     PictureRepository pictureRepository;
-
-
+    @Value("${file.picURL}")
+    String picURL;
+    @Value("${file.URL}")
+    String URL;
     @Transactional
     @Override
     public Result upload(MultipartFile file) {
@@ -34,14 +37,14 @@ public class PictureServiceImpl implements PictureService{
         String fileName=file.getOriginalFilename();
         fileName = UUID.randomUUID() + fileName;
         //上传到nginx
-        String dirPath = "/www/server/nginx/html/upload/" + fileName;
+        String dirPath = picURL + fileName;
         log.info("上传路径:" + dirPath);
         File filePath=new File(dirPath);
         if(!filePath.exists()){
             filePath.mkdirs();
         }
         //url:localhost:8080/image/filename
-        String url = "http://www.suenaga.top/image/" + fileName;
+        String url = URL + fileName;
         log.info("上传url:" + url);
         picture.setDialogImageUrl(url);
         pictureRepository.save(picture);

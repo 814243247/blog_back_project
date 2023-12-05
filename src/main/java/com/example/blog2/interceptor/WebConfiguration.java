@@ -24,14 +24,14 @@ import springfox.documentation.service.ApiInfo;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
-import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
+//import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 
 /**
  * token拦截
  */
 @Configuration
-@EnableSwagger2WebMvc
+//@EnableSwagger2WebMvc
 @Slf4j
 public class WebConfiguration implements WebMvcConfigurer {
 
@@ -40,10 +40,6 @@ public class WebConfiguration implements WebMvcConfigurer {
     //构造方法
     public WebConfiguration(TokenInterceptor tokenInterceptor){
         this.tokenInterceptor = tokenInterceptor;
-    }
-    @Bean
-    public ApplicationHome applicationHome() {
-        return new ApplicationHome();
     }
     @Override
     public void configureAsyncSupport(AsyncSupportConfigurer configurer){
@@ -86,13 +82,5 @@ public class WebConfiguration implements WebMvcConfigurer {
                 // 文档版本号
                 .version("1.0")
                 .build();
-    }
-    @Autowired
-    ApplicationHome applicationHome;
-    @Override
-    @Lazy
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/upload/**").addResourceLocations("classpath:/upload/");
-        WebMvcConfigurer.super.addResourceHandlers(registry);
     }
 }
