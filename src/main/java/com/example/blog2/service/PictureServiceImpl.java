@@ -26,19 +26,22 @@ public class PictureServiceImpl implements PictureService{
     @Transactional
     @Override
     public Result upload(MultipartFile file) {
+        if (file.getSize() > 1024*1024*20) {
+            return new Result(false,StatusCode.ERROR,"上传文件不能大于20mb");
+        }
         Picture picture = new Picture();
         //获取文件名以及后缀名
         String fileName=file.getOriginalFilename();
         fileName = UUID.randomUUID() + fileName;
         //上传到nginx
-        String dirPath = "E:/nginx-1.24.0/html/upload/" + fileName;
+        String dirPath = "/www/server/nginx/html/upload/" + fileName;
         log.info("上传路径:" + dirPath);
         File filePath=new File(dirPath);
         if(!filePath.exists()){
             filePath.mkdirs();
         }
         //url:localhost:8080/image/filename
-        String url = "http://localhost/image/" + fileName;
+        String url = "http://www.suenaga.top/image/" + fileName;
         log.info("上传url:" + url);
         picture.setDialogImageUrl(url);
         pictureRepository.save(picture);
@@ -50,7 +53,7 @@ public class PictureServiceImpl implements PictureService{
         }catch (Exception e){
             e.printStackTrace();
             //上传失败，返回失败信息
-            return new Result(true,StatusCode.OK,"图片上传失败",picture);
+            return new Result(false,StatusCode.ERROR,"图片上传失败");
         }
     }
 
