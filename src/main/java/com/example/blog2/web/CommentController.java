@@ -29,7 +29,6 @@ public class CommentController {
     @Autowired
     private UserService userService;
 
-    private final String avatar = "/images/avatar.png";
 
     //获取评论集合
     @GetMapping("/comments/{blogId}")
