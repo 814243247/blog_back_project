@@ -22,10 +22,10 @@ import java.util.UUID;
 public class PictureServiceImpl implements PictureService{
     @Autowired
     PictureRepository pictureRepository;
-    @Value("${file.picURL}")
-    String picURL;
-    @Value("${file.URL}")
-    String URL;
+    @Value("${file.path}")
+    String path;
+    @Value("${file.url")
+    String picUrl;
     @Transactional
     @Override
     public Result upload(MultipartFile file) {
@@ -37,14 +37,14 @@ public class PictureServiceImpl implements PictureService{
         String fileName=file.getOriginalFilename();
         fileName = UUID.randomUUID() + fileName;
         //上传到nginx
-        String dirPath = picURL + fileName;
+        String dirPath = path + fileName;
         log.info("上传路径:" + dirPath);
         File filePath=new File(dirPath);
         if(!filePath.exists()){
             filePath.mkdirs();
         }
         //url:localhost:8080/image/filename
-        String url = URL + fileName;
+        String url = picUrl + fileName;
         log.info("上传url:" + url);
         picture.setDialogImageUrl(url);
         pictureRepository.save(picture);

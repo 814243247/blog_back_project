@@ -1,11 +1,12 @@
 package com.example.blog2.service;
 
 import com.example.blog2.po.Blog;
+import com.example.blog2.po.Result;
+import com.example.blog2.po.Tag;
 import com.example.blog2.vo.BlogQuery;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -24,9 +25,9 @@ public interface BlogService {
 
     List<Blog> listRecommendBlogTop(Integer size);
 
-    Blog saveBlog(Blog blog);
+    Result saveBlog(Blog blog);
 
-    Blog updateBlog(Long id, Blog blog);
+    Result updateBlog(Blog blog);
 
     void deleteBlog(Long id);
 
@@ -48,4 +49,5 @@ public interface BlogService {
 
     Long countComment();
 
+    void deleteBlogTag(Tag id);
 }

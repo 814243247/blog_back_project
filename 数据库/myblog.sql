@@ -13,7 +13,7 @@
 
  Date: 27/07/2021 17:39:16
 */
-
+alter table blog.t_blog modify content varchar(2000);
 SET NAMES utf8;
 SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------

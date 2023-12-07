@@ -6,6 +6,7 @@ import com.example.blog2.service.BlogService;
 import com.example.blog2.service.TagService;
 import com.example.blog2.service.TypeService;
 import com.example.blog2.vo.BlogQuery;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -14,6 +15,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.rmi.CORBA.Util;
 import java.util.Map;
 
 
@@ -49,19 +51,12 @@ public class BlogController {
     @PostMapping("/blogs")
     public Result post(@RequestBody Map<String, Blog> para) {
         Blog blog = para.get("blog");
-        blog.setType(typeService.getType(blog.getType().getId()));
-        blog.setTags(tagService.listTag(blog.getTagIds()));
-        Blog b;
         if (blog.getId() == null) {
-            b = blogService.saveBlog(blog);
+            return blogService.saveBlog(blog);
         } else {
-            System.out.println("修改");
-            b = blogService.updateBlog(blog.getId(), blog);
+            return blogService.updateBlog(blog);
         }
-        if (b == null) {
-            return new Result(false,StatusCode.ERROR,"操作失败");
-        }
-        return new Result(true,StatusCode.OK,"操作成功");
+
     }
 
     @GetMapping("/search")
@@ -80,7 +75,7 @@ public class BlogController {
     @GetMapping("/dealDeletedTag/{id}")
     public Result dealDeletedTag(@PathVariable Long id){
         Tag tag = tagService.getTag(id);
-        if (tag.getBlogs().size()==0){
+        if (tag.getBlogs().size()!=0){
             System.out.println("去除无用标签");
             tagService.deleteTag(id);
         }

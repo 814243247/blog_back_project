@@ -48,4 +48,5 @@ public interface BlogRepository extends JpaRepository<Blog,Long>, JpaSpecificati
     @Query("select function('date_format',b.createTime, '%Y-%m') AS MONTH,sum(b.appreciation) as appreciate from Blog b group by MONTH order by MONTH desc")
     List<String> appreciateCountByMonth();
 
+
 }

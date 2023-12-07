@@ -1,10 +1,8 @@
 package com.example.blog2.service;
 
 import com.example.blog2.dao.BlogRepository;
-import com.example.blog2.po.Blog;
-import com.example.blog2.po.Type;
+import com.example.blog2.po.*;
 import com.example.blog2.util.MarkdownUtils;
-import com.example.blog2.util.MyBeanUtils;
 import com.example.blog2.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
 import javax.persistence.criteria.*;
 import javax.transaction.Transactional;
 import java.util.*;
@@ -24,6 +23,8 @@ public class BlogServiceImpl implements BlogService {
 
     @Autowired
     private BlogRepository blogRepository;
+    @Autowired
+    private EntityManager entityManager;
 
     @Override
     public Blog getBlog(Long id) {
@@ -35,12 +36,12 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.findAll((Specification<Blog>) (root, cq, cb) -> {
             List<Predicate> predicates = new ArrayList<>();
 //            根据标题查找
-            if (!"".equals(blog.getTitle())&& blog.getTitle() != null) {
-                predicates.add(cb.like(root.get("title"),"%"+blog.getTitle()+"%"));
+            if (!"".equals(blog.getTitle()) && blog.getTitle() != null) {
+                predicates.add(cb.like(root.get("title"), "%" + blog.getTitle() + "%"));
             }
 //            根据type对象的id值查找
-            if (blog.getTypeId()!=null){
-                predicates.add(cb.equal(root.<Type>get("type").get("id"),blog.getTypeId()));
+            if (blog.getTypeId() != null) {
+                predicates.add(cb.equal(root.<Type>get("type").get("id"), blog.getTypeId()));
             }
 
             cq.where(predicates.toArray(new Predicate[predicates.size()]));
@@ -51,7 +52,7 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Page<Blog> listBlog(Pageable pageable) {
         Page<Blog> blogs = blogRepository.findAll(pageable);
-        blogs.stream().forEach( blog -> {
+        blogs.stream().forEach(blog -> {
             blog.setContent("");
             blog.setComments(null);
         });
@@ -60,8 +61,8 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public Page<Blog> listBlog(Long tagId, Pageable pageable) {
-        Page<Blog> blogs = blogRepository.findAll((Specification<Blog>) (root, cq, cb) -> cb.equal(root.join("tags").get("id"),tagId),pageable);
-        blogs.stream().forEach( blog -> {
+        Page<Blog> blogs = blogRepository.findAll((Specification<Blog>) (root, cq, cb) -> cb.equal(root.join("tags").get("id"), tagId), pageable);
+        blogs.stream().forEach(blog -> {
             blog.setContent("");
             blog.setComments(null);
         });
@@ -70,8 +71,8 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public Page<Blog> listBlog(String query, Pageable pageable) {
-        Page<Blog> blogs = blogRepository.findByQuery(query,pageable);
-        blogs.stream().forEach( blog -> {
+        Page<Blog> blogs = blogRepository.findByQuery(query, pageable);
+        blogs.stream().forEach(blog -> {
             blog.setContent("");
             blog.setComments(null);
         });
@@ -80,10 +81,10 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public List<Blog> listRecommendBlogTop(Integer size) {
-        Sort sort = Sort.by(Sort.Direction.DESC,"createTime");
-        Pageable pageable = PageRequest.of(0,size,sort);
+        Sort sort = Sort.by(Sort.Direction.DESC, "createTime");
+        Pageable pageable = PageRequest.of(0, size, sort);
         List<Blog> blogs = blogRepository.findTop(pageable);
-        blogs.stream().forEach( blog -> {
+        blogs.stream().forEach(blog -> {
             blog.setContent("");
             blog.setComments(null);
         });
@@ -92,36 +93,36 @@ public class BlogServiceImpl implements BlogService {
 
     @Transactional
     @Override
-    public Blog saveBlog(Blog blog) {
-        if (blog.getFlag() == null || "".equals(blog.getFlag())) {
+    public Result saveBlog(Blog blog) {
+        if (blog.getContent().length() > 2000) {
+            return new Result(false,StatusCode.ERROR,"字数超过2000",blog);
+        }
+        if (blog.getFlag().equals("")) {
             blog.setFlag("原创");
         }
-        if (blog.getFirstPicture() == null || "".equals(blog.getFirstPicture())) {
+        if (blog.getFirstPicture().equals("")) {
             blog.setFirstPicture(blog.getType().getPic_url());
         }
-        if (blog.getDescription() == null || "".equals(blog.getDescription())) {
-            blog.setDescription(blog.getContent().substring(0, Math.min(120, blog.getContent().length())));
-        }
-        if (blog.getId() == null) {
-            blog.setCreateTime(new Date());
-            blog.setUpdateTime(new Date());
-            blog.setViews(0);
-        } else {
-            blog.setUpdateTime(new Date());
-        }
-        return blogRepository.save(blog);
+        blog.setCreateTime(new Date());
+        blog.setUpdateTime(new Date());
+        blog.setViews(0);
+        saveBlog(blog);
+        return new Result<>(true, StatusCode.OK,"完成保存",blog);
     }
-
     @Transactional
     @Override
-    public Blog updateBlog(Long id, Blog blog) {
-        Blog b = blogRepository.getOne(id);
-        BeanUtils.copyProperties(blog, b, MyBeanUtils.getNullPropertyNames(blog));
-        if (b.getFirstPicture() == null || "".equals(b.getFirstPicture())) {
+    public Result updateBlog(Blog blog) {
+        if (blog.getContent().length() > 2000) {
+            return new Result(false,StatusCode.ERROR,"字数超过2000",blog);
+        }
+        Blog b = blogRepository.findById(blog.getId()).get();
+        BeanUtils.copyProperties(blog,b);
+        if (b.getFirstPicture().equals("")) {
             b.setFirstPicture(b.getType().getPic_url());
         }
         b.setUpdateTime(new Date());
-        return blogRepository.save(b);
+        entityManager.merge(b);
+        return new Result(true,StatusCode.OK,"更新完成",b);
     }
 
     @Transactional
@@ -170,6 +171,16 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public Long countComment() {
         return blogRepository.countComment();
+    }
+
+    @Override
+    public void deleteBlogTag(Tag tag) {
+        List<Blog> blogs = tag.getBlogs();
+        for (int i = 0; i < blogs.size(); i++) {
+            blogs.get(i).getTags().remove(tag);
+            entityManager.merge(blogs.get(i));
+        }
+
     }
 
     @Override
