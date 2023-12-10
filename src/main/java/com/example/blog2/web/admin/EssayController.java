@@ -1,5 +1,6 @@
 package com.example.blog2.web.admin;
 
+import com.example.blog2.po.Blog;
 import com.example.blog2.po.Essay;
 import com.example.blog2.po.Result;
 import com.example.blog2.po.StatusCode;
@@ -25,19 +26,14 @@ public class EssayController {
 
     @PostMapping("/essay")
     public Result post(@RequestBody Map<String, Essay> para){
-        System.out.println(para);
         Essay essay = para.get("essay");
-        System.out.println(essay);
-        Essay e;
-        if (essay.getId() == null){
-            e = essayService.saveEssay(essay);
+        if (essay.getId() == null) {
+            essayService.saveEssay(essay);
+            return new Result(true,StatusCode.OK,"添加成功",essay);
         } else {
-            e = essayService.updateEssay(essay.getId(),essay);
+            essayService.updateEssay(essay.getId(),essay);
+            return new Result(true,StatusCode.OK,"更新成功",essay);
         }
-        if (e == null) {
-            return new Result(false,StatusCode.ERROR,"操作失败");
-        }
-        return new Result(true,StatusCode.OK,"操作成功");
     }
 
     @GetMapping("/essays")

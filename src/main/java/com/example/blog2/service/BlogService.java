@@ -23,7 +23,7 @@ public interface BlogService {
 
     Page<Blog> listBlog(String query,Pageable pageable);
 
-    List<Blog> listRecommendBlogTop(Integer size);
+    Result listRecommendBlogTop(Integer size);
 
     Result saveBlog(Blog blog);
 

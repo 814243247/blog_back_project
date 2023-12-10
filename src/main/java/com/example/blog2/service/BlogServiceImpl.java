@@ -80,7 +80,7 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public List<Blog> listRecommendBlogTop(Integer size) {
+    public Result listRecommendBlogTop(Integer size) {
         Sort sort = Sort.by(Sort.Direction.DESC, "createTime");
         Pageable pageable = PageRequest.of(0, size, sort);
         List<Blog> blogs = blogRepository.findTop(pageable);
@@ -88,14 +88,14 @@ public class BlogServiceImpl implements BlogService {
             blog.setContent("");
             blog.setComments(null);
         });
-        return blogs;
+        return new Result(true,StatusCode.OK,"获取推荐列表成功",blogs);
     }
 
     @Transactional
     @Override
     public Result saveBlog(Blog blog) {
-        if (blog.getContent().length() > 2000) {
-            return new Result(false,StatusCode.ERROR,"字数超过2000",blog);
+        if (blog.getContent().length() > 10000) {
+            return new Result(false,StatusCode.ERROR,"字数超过10000",blog);
         }
         if (blog.getFlag().equals("")) {
             blog.setFlag("原创");
