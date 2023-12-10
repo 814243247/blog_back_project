@@ -78,6 +78,19 @@ public class PictureServiceImpl implements PictureService{
 
     @Override
     public void deleteByID(Long id) {
+        Picture picture = pictureRepository.findById(id).get();
+        String dialogImageUrl = picture.getDialogImageUrl();
+        String filename = dialogImageUrl.substring(dialogImageUrl.lastIndexOf("/") + 1);
+        File file = new File(path + filename);
+        if (file.exists()) {
+            if (file.delete()) {
+                log.info("删除图片:{}",filename);
+            }else {
+                log.info("无法删除图片:{}",filename);
+            }
+        }else {
+            log.info("图片不存在");
+        }
         pictureRepository.deleteById(id);
     }
 
