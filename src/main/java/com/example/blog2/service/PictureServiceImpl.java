@@ -24,7 +24,7 @@ public class PictureServiceImpl implements PictureService{
     PictureRepository pictureRepository;
     @Value("${file.path}")
     String path;
-    @Value("${file.url")
+    @Value("${file.url}")
     String picUrl;
     @Transactional
     @Override
@@ -47,8 +47,8 @@ public class PictureServiceImpl implements PictureService{
         String url = picUrl + fileName;
         log.info("上传url:" + url);
         picture.setDialogImageUrl(url);
-        pictureRepository.save(picture);
         try{
+            pictureRepository.save(picture);
             //将文件写入磁盘
             file.transferTo(new File(dirPath));
             //文件上传成功返回状态信息

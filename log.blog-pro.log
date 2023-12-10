@@ -1,25 +1,15 @@
-2023-12-06 04:05:44.613  INFO 14136 --- [main] com.example.blog2.Blog2ApplicationTests  : Starting Blog2ApplicationTests using Java 1.8.0_333 on MSIGS65 with PID 14136 (started by 81424 in E:\JavaProject\myblog-backend-master\myblog-backend-master)
-2023-12-06 04:05:44.616  INFO 14136 --- [main] com.example.blog2.Blog2ApplicationTests  : The following profiles are active: pro
-2023-12-06 04:05:45.575  WARN 14136 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.blog2]' package. Please check your configuration.
-2023-12-06 04:05:53.300  WARN 14136 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 04:05:56.023  INFO 14136 --- [main] com.example.blog2.Blog2ApplicationTests  : Started Blog2ApplicationTests in 11.734 seconds (JVM running for 12.605)
-2023-12-06 04:08:37.057  INFO 13968 --- [main] com.example.blog2.Blog2ApplicationTests  : Starting Blog2ApplicationTests using Java 1.8.0_333 on MSIGS65 with PID 13968 (started by 81424 in E:\JavaProject\myblog-backend-master\myblog-backend-master)
-2023-12-06 04:08:37.058  INFO 13968 --- [main] com.example.blog2.Blog2ApplicationTests  : The following profiles are active: pro
-2023-12-06 04:08:37.956  WARN 13968 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.blog2]' package. Please check your configuration.
-2023-12-06 04:08:45.414  WARN 13968 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 04:08:47.986  INFO 13968 --- [main] com.example.blog2.Blog2ApplicationTests  : Started Blog2ApplicationTests in 11.242 seconds (JVM running for 12.085)
-2023-12-06 04:13:01.643  INFO 1436 --- [main] com.example.blog2.Blog2ApplicationTests  : Starting Blog2ApplicationTests using Java 1.8.0_333 on MSIGS65 with PID 1436 (started by 81424 in E:\JavaProject\myblog-backend-master\myblog-backend-master)
-2023-12-06 04:13:01.644  INFO 1436 --- [main] com.example.blog2.Blog2ApplicationTests  : The following profiles are active: pro
-2023-12-06 04:13:02.600  WARN 1436 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.blog2]' package. Please check your configuration.
-2023-12-06 04:13:08.339  WARN 1436 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 04:13:10.894  INFO 1436 --- [main] com.example.blog2.Blog2ApplicationTests  : Started Blog2ApplicationTests in 9.597 seconds (JVM running for 10.46)
-2023-12-06 04:26:41.559  INFO 8944 --- [main] com.example.blog2.Blog2ApplicationTests  : Starting Blog2ApplicationTests using Java 1.8.0_333 on MSIGS65 with PID 8944 (started by 81424 in E:\JavaProject\myblog-backend-master\myblog-backend-master)
-2023-12-06 04:26:41.560  INFO 8944 --- [main] com.example.blog2.Blog2ApplicationTests  : The following profiles are active: pro
-2023-12-06 04:26:42.307  WARN 8944 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.blog2]' package. Please check your configuration.
-2023-12-06 04:26:48.232  WARN 8944 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-06 04:26:50.244  INFO 8944 --- [main] com.example.blog2.Blog2ApplicationTests  : Started Blog2ApplicationTests in 9.003 seconds (JVM running for 9.905)
-2023-12-07 12:11:26.272  INFO 2728 --- [main] com.example.blog2.Blog2ApplicationTests  : Starting Blog2ApplicationTests using Java 1.8.0_333 on MSIGS65 with PID 2728 (started by 81424 in E:\JavaProject\myblog-backend-master\myblog-backend-master)
-2023-12-07 12:11:26.273  INFO 2728 --- [main] com.example.blog2.Blog2ApplicationTests  : The following profiles are active: pro
-2023-12-07 12:11:27.093  WARN 2728 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.blog2]' package. Please check your configuration.
-2023-12-07 12:11:33.235  WARN 2728 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-12-07 12:11:35.316  INFO 2728 --- [main] com.example.blog2.Blog2ApplicationTests  : Started Blog2ApplicationTests in 9.378 seconds (JVM running for 10.277)
+2023-12-10 16:21:05.098  INFO 6388 --- [main] com.example.blog2.Blog2ApplicationTests  : Starting Blog2ApplicationTests using Java 1.8.0_333 on MSIGS65 with PID 6388 (started by 81424 in E:\JavaProject\myblog-backend-master\myblog-backend-master)
+2023-12-10 16:21:05.101  INFO 6388 --- [main] com.example.blog2.Blog2ApplicationTests  : The following profiles are active: pro
+2023-12-10 16:21:05.795  WARN 6388 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.blog2]' package. Please check your configuration.
+2023-12-10 16:21:13.200  WARN 6388 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-10 16:21:15.034  INFO 6388 --- [main] com.example.blog2.Blog2ApplicationTests  : Started Blog2ApplicationTests in 10.292 seconds (JVM running for 11.172)
+2023-12-10 16:27:11.395  INFO 3652 --- [main] com.example.blog2.Blog2ApplicationTests  : Starting Blog2ApplicationTests using Java 1.8.0_333 on MSIGS65 with PID 3652 (started by 81424 in E:\JavaProject\myblog-backend-master\myblog-backend-master)
+2023-12-10 16:27:11.396  INFO 3652 --- [main] com.example.blog2.Blog2ApplicationTests  : The following profiles are active: pro
+2023-12-10 16:27:12.146  WARN 3652 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.blog2]' package. Please check your configuration.
+2023-12-10 16:27:18.890  WARN 3652 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-10 16:27:20.765  INFO 3652 --- [main] com.example.blog2.Blog2ApplicationTests  : Started Blog2ApplicationTests in 9.669 seconds (JVM running for 10.49)
+2023-12-10 16:52:34.515  INFO 5344 --- [main] com.example.blog2.Blog2ApplicationTests  : Starting Blog2ApplicationTests using Java 1.8.0_333 on MSIGS65 with PID 5344 (started by 81424 in E:\JavaProject\myblog-backend-master\myblog-backend-master)
+2023-12-10 16:52:34.516  INFO 5344 --- [main] com.example.blog2.Blog2ApplicationTests  : The following profiles are active: pro
+2023-12-10 16:52:35.213  WARN 5344 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.blog2]' package. Please check your configuration.
+2023-12-10 16:52:39.545  WARN 5344 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-10 16:52:41.360  INFO 5344 --- [main] com.example.blog2.Blog2ApplicationTests  : Started Blog2ApplicationTests in 7.158 seconds (JVM running for 8.008)
