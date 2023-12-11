@@ -89,28 +89,29 @@ create table t_user
 
 create table t_blog
 (
-    id              bigint         not null
+    id              bigint                    not null
         primary key,
-    appreciation    int            null,
-    commentabled    bit            not null,
-    content         varchar(10000) null,
-    create_time     datetime(6)    null,
-    description     varchar(255)   null,
-    first_picture   varchar(255)   null,
-    flag            varchar(255)   null,
-    published       bit            not null,
-    recommend       bit            not null,
-    share_statement bit            not null,
-    title           varchar(255)   null,
-    update_time     datetime(6)    null,
-    views           int            null,
-    type_id         bigint         null,
-    user_id         bigint         null,
+    appreciation    int                       null,
+    commentabled    bit                       not null,
+    content         varchar(10000)            null,
+    create_time     datetime(6)               null,
+    description     varchar(255) charset utf8 null,
+    first_picture   varchar(255) charset utf8 null,
+    flag            varchar(255) charset utf8 null,
+    published       bit                       not null,
+    recommend       bit                       not null,
+    share_statement bit                       not null,
+    title           varchar(255) charset utf8 null,
+    update_time     datetime(6)               null,
+    views           int                       null,
+    type_id         bigint                    null,
+    user_id         bigint                    null,
     constraint FK292449gwg5yf7ocdlmswv9w4j
         foreign key (type_id) references t_type (id),
     constraint FK8ky5rrsxh01nkhctmo7d48p82
         foreign key (user_id) references t_user (id)
-);
+)
+    collate = utf8mb4_unicode_ci;
 
 create table t_blog_tags
 (
@@ -140,5 +141,4 @@ create table t_comment
     constraint FKke3uogd04j4jx316m1p51e05u
         foreign key (blog_id) references t_blog (id)
 );
-
 
