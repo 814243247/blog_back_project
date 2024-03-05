@@ -106,7 +106,7 @@ public class BlogServiceImpl implements BlogService {
         blog.setCreateTime(new Date());
         blog.setUpdateTime(new Date());
         blog.setViews(0);
-        saveBlog(blog);
+        blogRepository.save(blog);
         return new Result<>(true, StatusCode.OK,"完成保存",blog);
     }
     @Transactional

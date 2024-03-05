@@ -1,21 +1,21 @@
-2023-11-05 19:01:38.870  INFO 20944 --- [main] com.example.blog2.Blog2ApplicationTests  : Starting Blog2ApplicationTests using Java 18.0.1.1 on MSIGS65 with PID 20944 (started by 81424 in E:\JavaProject\myblog-backend-master\myblog-backend-master)
-2023-11-05 19:01:38.903 DEBUG 20944 --- [main] com.example.blog2.Blog2ApplicationTests  : Running with Spring Boot v2.4.4, Spring v5.3.5
-2023-11-05 19:01:38.904  INFO 20944 --- [main] com.example.blog2.Blog2ApplicationTests  : No active profile set, falling back to default profiles: default
-2023-11-05 19:01:39.507  INFO 20944 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-11-05 19:01:39.593  INFO 20944 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 76 ms. Found 8 JPA repository interfaces.
-2023-11-05 19:01:39.707  WARN 20944 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.blog2]' package. Please check your configuration.
-2023-11-05 19:01:40.148  INFO 20944 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-11-05 19:01:40.188  INFO 20944 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
-2023-11-05 19:01:40.294  INFO 20944 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2023-11-05 19:01:40.471  INFO 20944 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-11-05 19:01:40.787  INFO 20944 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-11-05 19:01:40.812  INFO 20944 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
-2023-11-05 19:01:41.530  INFO 20944 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-11-05 19:01:41.539  INFO 20944 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 19:01:42.405  WARN 20944 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-11-05 19:01:42.610  INFO 20944 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2023-11-05 19:01:43.130  INFO 20944 --- [main] com.example.blog2.Blog2ApplicationTests  : Started Blog2ApplicationTests in 4.614 seconds (JVM running for 5.4)
-2023-11-05 19:01:43.266  INFO 20944 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
-2023-11-05 19:01:43.269  INFO 20944 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-11-05 19:01:43.272  INFO 20944 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2023-11-05 19:01:43.279  INFO 20944 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-02-18 15:24:57.284  INFO 11692 --- [main] com.example.blog2.Blog2ApplicationTests  : Starting Blog2ApplicationTests using Java 1.8.0_333 on WEWE with PID 11692 (started by 81424 in E:\JavaProject\myblog-backend-master\myblog-backend-master)
+2024-02-18 15:24:57.289 DEBUG 11692 --- [main] com.example.blog2.Blog2ApplicationTests  : Running with Spring Boot v2.4.4, Spring v5.3.5
+2024-02-18 15:24:57.290  INFO 11692 --- [main] com.example.blog2.Blog2ApplicationTests  : The following profiles are active: dev
+2024-02-18 15:24:58.331  INFO 11692 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-18 15:24:58.571  INFO 11692 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 220 ms. Found 9 JPA repository interfaces.
+2024-02-18 15:24:58.818  WARN 11692 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.example.blog2]' package. Please check your configuration.
+2024-02-18 15:24:59.565  INFO 11692 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-18 15:24:59.693  INFO 11692 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.29.Final
+2024-02-18 15:24:59.966  INFO 11692 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-02-18 15:25:01.657  INFO 11692 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-02-18 15:25:03.736  INFO 11692 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-02-18 15:25:03.808  INFO 11692 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+2024-02-18 15:25:06.317  INFO 11692 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-02-18 15:25:06.335  INFO 11692 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-18 15:25:08.430  WARN 11692 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-18 15:25:08.832  INFO 11692 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2024-02-18 15:25:12.139  INFO 11692 --- [main] com.example.blog2.Blog2ApplicationTests  : Started Blog2ApplicationTests in 15.447 seconds (JVM running for 16.928)
+2024-02-18 15:25:12.385  INFO 11692 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2024-02-18 15:25:12.393  INFO 11692 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-18 15:25:12.397  INFO 11692 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-02-18 15:25:12.417  INFO 11692 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
